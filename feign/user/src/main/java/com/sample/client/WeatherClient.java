@@ -11,7 +11,6 @@
 package com.sample.client;
 
 import com.sample.config.FeignConfig;
-import com.sample.config.WeatherFeignConfig;
 import com.sample.dto.WeatherDto;
 import lombok.Getter;
 import org.springframework.cloud.openfeign.FeignClient;
