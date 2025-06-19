@@ -9,5 +9,9 @@ spring:
     url: r2dbc:mariadb://localhost:33308/reactor_user
     username: root
     password: password
+  sql:
+    init:
+      schema-locations: classpath:db/mysql/schema.sql
+      mode: always
 server:
   port: 8082

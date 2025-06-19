@@ -39,4 +39,10 @@ public class UserController {
     UserDto.Response response = userService.create(userDto.getName());
     return ResponseEntity.ok(response);
   }
+
+  @PutMapping
+  public ResponseEntity<UserDto.Response> updateUser(@RequestBody UserDto.Create userDto) {
+    UserDto.Response response = userService.transactionTest(userDto.getName());
+    return ResponseEntity.ok(response);
+  }
 }

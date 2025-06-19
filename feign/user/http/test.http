@@ -4,6 +4,15 @@ Content-Type: application/json
 {
   "name": "안녕"
 }
+
+### 트랜잭션 테스트 -> 수정 날짜 체크
+PUT localhost:8080/users
+Content-Type: application/json
+
+{
+"name": "안녕"
+}
+
 ### time
 GET localhost:8080/test/time
 

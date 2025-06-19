@@ -51,4 +51,16 @@ public class UserService {
             user.getName(),
             walletDto.getId());
   }
+
+  @Transactional
+  public UserDto.Response transactionTest(String name) {
+    User user = userRepository.findByName(name)
+            .orElseThrow(() -> new RuntimeException("NOT FOUND"));
+
+    WalletDto.Response walletDto = walletClient.create(new WalletDto.Create(user.getId()))
+            .getBody();
+    return new UserDto.Response(user.getId(),
+            user.getName(),
+            walletDto.getId());
+  }
 }

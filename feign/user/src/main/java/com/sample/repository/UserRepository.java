@@ -13,6 +13,7 @@ package com.sample.repository;
 import com.sample.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -28,4 +29,6 @@ import java.util.UUID;
  * @since 지원하는 자바버전 (ex : 5+ 5이상)
  */
 public interface UserRepository extends JpaRepository<User, UUID> {
+
+  Optional<User> findByName(String name);
 }
