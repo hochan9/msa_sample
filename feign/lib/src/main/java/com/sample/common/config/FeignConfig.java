@@ -8,12 +8,10 @@
  * Written by Backend Team <hc.son9@google.com>, 2025. 6. 19.
  */
 
-package com.sample.client;
+package com.sample.common.config;
 
-import com.sample.common.config.FeignConfig;
-import com.sample.wallet.client.WalletClient;
-import feign.Headers;
-import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA.
@@ -27,10 +25,6 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @see
  * @since 지원하는 자바버전 (ex : 5+ 5이상)
  */
-@FeignClient(name = "wallet",
-        url = "${api.url.wallet}",
-        path = "/wallet",
-        configuration = FeignConfig.class)
-@Headers({"Content-type", "application/json"})
-public interface WalletClientImpl extends WalletClient {
+@Configuration
+public class FeignConfig {
 }

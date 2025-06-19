@@ -8,12 +8,13 @@
  * Written by Backend Team <hc.son9@google.com>, 2025. 6. 19.
  */
 
-package com.sample.client;
+package com.sample.repository;
 
-import com.sample.common.config.FeignConfig;
-import com.sample.wallet.client.WalletClient;
-import feign.Headers;
-import org.springframework.cloud.openfeign.FeignClient;
+import com.sample.entity.Wallet;
+import org.springframework.data.r2dbc.repository.R2dbcRepository;
+import reactor.core.publisher.Mono;
+
+import java.util.UUID;
 
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA.
@@ -27,10 +28,8 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @see
  * @since 지원하는 자바버전 (ex : 5+ 5이상)
  */
-@FeignClient(name = "wallet",
-        url = "${api.url.wallet}",
-        path = "/wallet",
-        configuration = FeignConfig.class)
-@Headers({"Content-type", "application/json"})
-public interface WalletClientImpl extends WalletClient {
+public interface WalletRepository extends R2dbcRepository<Wallet, Long> {
+
+  Mono<Wallet> findByUserId(UUID userId);
+
 }

@@ -8,7 +8,7 @@
  * Written by Backend Team <hc.son9@google.com>, 2025. 6. 19.
  */
 
-package com.sample.dto;
+package com.sample.wallet.dto;
 
 import lombok.Getter;
 

@@ -10,8 +10,8 @@
 
 package com.sample.controller;
 
-import com.sample.client.WalletClient;
-import com.sample.dto.WalletDto;
+import com.sample.wallet.client.WalletClient;
+import com.sample.wallet.dto.WalletDto;
 import com.sample.service.WalletService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -35,7 +35,7 @@ import java.util.UUID;
  * @since 지원하는 자바버전 (ex : 5+ 5이상)
  */
 @RestController
-@RequestMapping("/wallet")
+@RequestMapping("/wallets")
 @RequiredArgsConstructor
 public class WalletController implements WalletClient {
   private final WalletService walletService;

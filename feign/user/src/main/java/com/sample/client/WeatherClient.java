@@ -10,9 +10,8 @@
 
 package com.sample.client;
 
-import com.sample.config.FeignConfig;
+import com.sample.common.config.FeignConfig;
 import com.sample.dto.WeatherDto;
-import lombok.Getter;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

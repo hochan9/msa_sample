@@ -8,9 +8,9 @@
  * Written by Backend Team <hc.son9@google.com>, 2025. 6. 19.
  */
 
-package com.sample.client;
+package com.sample.wallet.client;
 
-import com.sample.dto.WalletDto;
+import com.sample.wallet.dto.WalletDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

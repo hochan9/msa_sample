@@ -10,12 +10,14 @@
 
 package com.sample.service;
 
-import com.sample.wallet.dto.WalletDto;
 import com.sample.entity.Wallet;
 import com.sample.repository.WalletRepository;
+import com.sample.wallet.dto.WalletDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.UUID;
 
@@ -37,24 +39,26 @@ import java.util.UUID;
 public class WalletService {
   private final WalletRepository walletRepository;
 
-  public WalletDto.Response findById(Long id) {
-    Wallet wallet = walletRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("NOT FOUND"));
-    return convertWallet(wallet);
+  public Mono<WalletDto.Response> findById(Long id) {
+    return walletRepository.findById(id)
+            .map(w -> convertWallet(w))
+            .switchIfEmpty(Mono.error(new RuntimeException("NOT FOUND")));
   }
 
-  public WalletDto.Response findByUserId(UUID userId) {
-    Wallet wallet = walletRepository.findByUserId(userId)
-            .orElseThrow(() -> new RuntimeException("NOT FOUND"));
-    return convertWallet(wallet);
+  public Mono<WalletDto.Response> findByUserId(UUID userId) {
+    return walletRepository.findByUserId(userId)
+            .map(w -> convertWallet(w))
+            .switchIfEmpty(Mono.error(new RuntimeException("NOT FOUND")));
   }
 
   @Transactional
-  public WalletDto.Response save(WalletDto.Create dto) {
+  public Mono<WalletDto.Response> save(WalletDto.Create dto) {
     Wallet wallet = new Wallet(dto.getUserId());
 
-    return convertWallet(walletRepository.save(wallet));
+    Mono<Wallet> walletMono = walletRepository.save(wallet);
+    return walletMono.map(w -> convertWallet(w));
   }
+
 
   private WalletDto.Response convertWallet(Wallet wallet) {
     return new WalletDto.Response(wallet.getId(), wallet.getUserId(), wallet.getPoint(), wallet.getCreatedAt(), wallet.getModifiedAt());

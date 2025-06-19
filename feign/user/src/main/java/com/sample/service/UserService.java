@@ -10,9 +10,9 @@
 
 package com.sample.service;
 
-import com.sample.client.WalletClient;
+import com.sample.wallet.client.WalletClient;
 import com.sample.dto.UserDto;
-import com.sample.dto.WalletDto;
+import com.sample.wallet.dto.WalletDto;
 import com.sample.entity.User;
 import com.sample.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
