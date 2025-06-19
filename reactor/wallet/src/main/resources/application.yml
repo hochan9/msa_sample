@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: user-reactor
+
+  profiles:
+    active: local
+
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+server:
+  port: 8083

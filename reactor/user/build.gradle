@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
+    id 'io.freefair.lombok' version "${lombokPluginVersion}"
+}
+
+java {
+    sourceCompatibility = "${javaVersion}"
+}
+
+dependencies {
+    // 공통적으로 사용될 의존성
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'io.projectreactor:reactor-core'
+    testImplementation 'io.projectreactor:reactor-test'
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+    runtimeOnly 'io.r2dbc:r2dbc-h2'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

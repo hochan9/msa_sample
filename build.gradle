@@ -1,0 +1,30 @@
+group = 'com.sample'
+version = '1.0.0'
+
+allprojects {
+    group = 'com.sample'
+    version = '1.0.0'
+
+    ext {
+        springBootVersion = '3.5.0'
+        springDependencyManagementVersion = '1.1.7'
+        lombokPluginVersion = '8.14'
+        springCloudVersion = '2025.0.0'
+        javaVersion = JavaVersion.VERSION_17
+    }
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+    }
+
+    tasks.withType(Jar).configureEach {
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    }
+}

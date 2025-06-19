@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: wallet-feign
+
+  profiles:
+    active: local
+
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+server:
+  port: 8081
