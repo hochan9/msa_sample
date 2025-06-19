@@ -4,3 +4,9 @@ Content-Type: application/json
 {
   "name": "안녕"
 }
+### time
+GET localhost:8080/test/time
+
+
+### weather
+GET localhost:8080/test/weather
