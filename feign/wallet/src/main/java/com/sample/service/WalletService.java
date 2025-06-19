@@ -10,7 +10,6 @@
 
 package com.sample.service;
 
-import com.sample.dto.WalletCreateDto;
 import com.sample.dto.WalletDto;
 import com.sample.entity.Wallet;
 import com.sample.repository.WalletRepository;
@@ -38,26 +37,26 @@ import java.util.UUID;
 public class WalletService {
   private final WalletRepository walletRepository;
 
-  public WalletDto findById(Long id) {
+  public WalletDto.Response findById(Long id) {
     Wallet wallet = walletRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("NOT FOUND"));
     return convertWallet(wallet);
   }
 
-  public WalletDto findByUserId(UUID userId) {
+  public WalletDto.Response findByUserId(UUID userId) {
     Wallet wallet = walletRepository.findByUserId(userId)
             .orElseThrow(() -> new RuntimeException("NOT FOUND"));
     return convertWallet(wallet);
   }
 
   @Transactional
-  public WalletDto save(WalletCreateDto dto) {
+  public WalletDto.Response save(WalletDto.Create dto) {
     Wallet wallet = new Wallet(dto.getUserId());
 
     return convertWallet(walletRepository.save(wallet));
   }
 
-  private WalletDto convertWallet(Wallet wallet) {
-    return new WalletDto(wallet.getId(), wallet.getUserId(), wallet.getPoint(), wallet.getCreatedAt(), wallet.getModifiedAt());
+  private WalletDto.Response convertWallet(Wallet wallet) {
+    return new WalletDto.Response(wallet.getId(), wallet.getUserId(), wallet.getPoint(), wallet.getCreatedAt(), wallet.getModifiedAt());
   }
 }

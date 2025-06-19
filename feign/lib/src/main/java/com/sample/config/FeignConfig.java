@@ -8,11 +8,10 @@
  * Written by Backend Team <hc.son9@google.com>, 2025. 6. 19.
  */
 
-package com.sample.dto;
+package com.sample.config;
 
-import lombok.Getter;
-
-import java.util.UUID;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA.
@@ -26,11 +25,6 @@ import java.util.UUID;
  * @see
  * @since 지원하는 자바버전 (ex : 5+ 5이상)
  */
-@Getter
-public class WalletCreateDto {
-  private UUID userId;
-
-  public WalletCreateDto(UUID userId) {
-    this.userId = userId;
-  }
+@Configuration
+public class FeignConfig {
 }

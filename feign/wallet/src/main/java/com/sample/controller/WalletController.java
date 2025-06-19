@@ -11,7 +11,6 @@
 package com.sample.controller;
 
 import com.sample.client.WalletClient;
-import com.sample.dto.WalletCreateDto;
 import com.sample.dto.WalletDto;
 import com.sample.service.WalletService;
 import lombok.RequiredArgsConstructor;
@@ -42,20 +41,20 @@ public class WalletController implements WalletClient {
   private final WalletService walletService;
 
   @Override
-  public ResponseEntity<WalletDto> findById(@PathVariable Long id) {
-    WalletDto dto = walletService.findById(id);
+  public ResponseEntity<WalletDto.Response> findById(@PathVariable Long id) {
+    WalletDto.Response dto = walletService.findById(id);
     return ResponseEntity.ok(dto);
   }
 
   @Override
-  public ResponseEntity<WalletDto> findByUserId(UUID userId) {
-    WalletDto dto = walletService.findByUserId(userId);
+  public ResponseEntity<WalletDto.Response> findByUserId(UUID userId) {
+    WalletDto.Response dto = walletService.findByUserId(userId);
     return ResponseEntity.ok(dto);
   }
 
   @Override
-  public ResponseEntity<WalletDto> create(WalletCreateDto dto) {
-    WalletDto walletDto = walletService.save(dto);
+  public ResponseEntity<WalletDto.Response> create(WalletDto.Create dto) {
+    WalletDto.Response walletDto = walletService.save(dto);
     return ResponseEntity.status(HttpStatus.CREATED)
             .body(walletDto);
   }

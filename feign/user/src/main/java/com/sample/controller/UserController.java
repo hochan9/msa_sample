@@ -8,13 +8,13 @@
  * Written by Backend Team <hc.son9@google.com>, 2025. 6. 19.
  */
 
-package com.sample.client;
+package com.sample.controller;
 
-import com.sample.dto.WalletDto;
+import com.sample.dto.UserDto;
+import com.sample.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.UUID;
 
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA.
@@ -28,14 +28,15 @@ import java.util.UUID;
  * @see
  * @since 지원하는 자바버전 (ex : 5+ 5이상)
  */
-public interface WalletClient {
-
-  @GetMapping("/{id}")
-  ResponseEntity<WalletDto.Response> findById(@PathVariable Long id);
-
-  @GetMapping
-  ResponseEntity<WalletDto.Response> findByUserId(@RequestParam(name = "userId") UUID userId);
+@RestController
+@RequestMapping("/users")
+@RequiredArgsConstructor
+public class UserController {
+  private final UserService userService;
 
   @PostMapping
-  ResponseEntity<WalletDto.Response> create(@RequestBody WalletDto.Create dto);
+  public ResponseEntity<UserDto.Response> createUser(@RequestBody UserDto.Create userDto) {
+    UserDto.Response response = userService.create(userDto.getName());
+    return ResponseEntity.ok(response);
+  }
 }

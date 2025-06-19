@@ -12,6 +12,7 @@ package com.sample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA.
@@ -26,6 +27,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 지원하는 자바버전 (ex : 5+ 5이상)
  */
 @SpringBootApplication
+@EnableFeignClients
 public class UserFeignApplication {
   public static void main(String[] args) {
     SpringApplication.run(UserFeignApplication.class, args);

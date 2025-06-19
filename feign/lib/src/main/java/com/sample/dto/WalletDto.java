@@ -30,17 +30,29 @@ import java.util.UUID;
  */
 @Getter
 public class WalletDto {
-  private Long id;
-  private UUID userId;
-  private BigDecimal point;
-  private LocalDateTime createdAt;
-  private LocalDateTime modifiedAt;
 
-  public WalletDto(Long id, UUID userId, BigDecimal point, LocalDateTime createdAt, LocalDateTime modifiedAt) {
-    this.id = id;
-    this.userId = userId;
-    this.point = point;
-    this.createdAt = createdAt;
-    this.modifiedAt = modifiedAt;
+  @Getter
+  public static class Create {
+    private UUID userId;
+    public Create(UUID userId) {
+      this.userId = userId;
+    }
+  }
+
+  @Getter
+  public static class Response {
+    private Long id;
+    private UUID userId;
+    private BigDecimal point;
+    private LocalDateTime createdAt;
+    private LocalDateTime modifiedAt;
+
+    public Response(Long id, UUID userId, BigDecimal point, LocalDateTime createdAt, LocalDateTime modifiedAt) {
+      this.id = id;
+      this.userId = userId;
+      this.point = point;
+      this.createdAt = createdAt;
+      this.modifiedAt = modifiedAt;
+    }
   }
 }
