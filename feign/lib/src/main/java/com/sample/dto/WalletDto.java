@@ -8,13 +8,12 @@
  * Written by Backend Team <hc.son9@google.com>, 2025. 6. 19.
  */
 
-package com.sample.client;
+package com.sample.dto;
 
-import com.sample.dto.WalletCreateDto;
-import com.sample.dto.WalletDto;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import lombok.Getter;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 /**
@@ -29,14 +28,19 @@ import java.util.UUID;
  * @see
  * @since 지원하는 자바버전 (ex : 5+ 5이상)
  */
-public interface WalletClient {
+@Getter
+public class WalletDto {
+  private Long id;
+  private UUID userId;
+  private BigDecimal point;
+  private LocalDateTime createdAt;
+  private LocalDateTime modifiedAt;
 
-  @GetMapping("/{id}")
-  ResponseEntity<WalletDto> findById(@PathVariable Long id);
-
-  @GetMapping
-  ResponseEntity<WalletDto> findByUserId(@RequestParam(name = "userId") UUID userId);
-
-  @PostMapping
-  ResponseEntity<WalletDto> create(@RequestBody WalletCreateDto dto);
+  public WalletDto(Long id, UUID userId, BigDecimal point, LocalDateTime createdAt, LocalDateTime modifiedAt) {
+    this.id = id;
+    this.userId = userId;
+    this.point = point;
+    this.createdAt = createdAt;
+    this.modifiedAt = modifiedAt;
+  }
 }

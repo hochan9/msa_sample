@@ -8,13 +8,12 @@
  * Written by Backend Team <hc.son9@google.com>, 2025. 6. 19.
  */
 
-package com.sample.client;
+package com.sample.repository;
 
-import com.sample.dto.WalletCreateDto;
-import com.sample.dto.WalletDto;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import com.sample.entity.Wallet;
+import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -29,14 +28,6 @@ import java.util.UUID;
  * @see
  * @since 지원하는 자바버전 (ex : 5+ 5이상)
  */
-public interface WalletClient {
-
-  @GetMapping("/{id}")
-  ResponseEntity<WalletDto> findById(@PathVariable Long id);
-
-  @GetMapping
-  ResponseEntity<WalletDto> findByUserId(@RequestParam(name = "userId") UUID userId);
-
-  @PostMapping
-  ResponseEntity<WalletDto> create(@RequestBody WalletCreateDto dto);
+public interface WalletRepository extends JpaRepository<Wallet, Long> {
+  Optional<Wallet> findByUserId(UUID userId);
 }
