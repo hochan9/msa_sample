@@ -16,9 +16,19 @@ dependencies {
     testImplementation 'io.projectreactor:reactor-test'
 
     implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
-    runtimeOnly 'io.r2dbc:r2dbc-h2'
+    runtimeOnly 'org.mariadb:r2dbc-mariadb'
+    testRuntimeOnly 'io.r2dbc:r2dbc-h2'
+
+    // 맥 관련 옵션
+    if (isAppleSilicon()) {
+        runtimeOnly("io.netty:netty-resolver-dns-native-macos:4.1.94.Final:osx-aarch_64")
+    }
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+def boolean isAppleSilicon() {
+    return System.getProperty("os.name").contains("Mac") && System.getProperty("os.arch").equals("aarch64")
 }

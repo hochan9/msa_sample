@@ -5,10 +5,9 @@ spring:
   profiles:
     active: local
 
-  datasource:
-    driverClassName: org.h2.Driver
-    url: jdbc:h2:mem:testdb
-    username: sa
-    password:
+  r2dbc:
+    url: r2dbc:mariadb://localhost:33308/reactor_user
+    username: root
+    password: password
 server:
   port: 8082

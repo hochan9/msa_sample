@@ -1,0 +1,4 @@
+CREATE DATABASE IF NOT EXISTS feign_user CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS feign_wallet CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS reactor_user CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS reactor_wallet CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
