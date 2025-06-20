@@ -18,7 +18,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> User Repository.. </p>
+ * <p>User Repository.. </p>
  *
  * @author Hochan Son
  * @version 1.0

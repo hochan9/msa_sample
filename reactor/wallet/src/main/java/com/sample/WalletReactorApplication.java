@@ -19,7 +19,7 @@ import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories;
  * create on 2025. 6. 19. create by IntelliJ IDEA.
  * create by IntelliJ IDEA.
  *
- * <p> application. </p>
+ * <p>application. </p>
  *
  * @author Hochan Son
  * @version 1.0

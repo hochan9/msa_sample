@@ -22,7 +22,7 @@ import reactor.core.publisher.Mono;
 /**
  * create on 2025. 6. 20. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> R2dbcEntityTemplate 를 이용한 Repository. </p>
+ * <p>R2dbcEntityTemplate 를 이용한 Repository. </p>
  *
  * @author Hochan Son
  * @version 1.0

@@ -23,7 +23,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> 지갑 entity. </p>
+ * <p>지갑 entity. </p>
  *
  * @author Hochan Son
  * @version 1.0

@@ -29,7 +29,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> entity.. </p>
+ * <p>entity. </p>
  *
  * @author Hochan Son
  * @version 1.0

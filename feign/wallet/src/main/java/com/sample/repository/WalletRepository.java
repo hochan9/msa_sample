@@ -18,7 +18,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> Wallet Repository. </p>
+ * <p>Wallet Repository. </p>
  *
  * @author Hochan Son
  * @version 1.0

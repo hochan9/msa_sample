@@ -25,7 +25,7 @@ import reactor.core.publisher.Mono;
  * create on 2025. 6. 20. create by IntelliJ IDEA.
  * create by IntelliJ IDEA.
  *
- * <p> UserController Handler 를 써야하지만, MVC 구조가 익술할 수 있기에. </p>
+ * <p>UserController Handler 를 써야하지만, MVC 구조가 익술할 수 있기에. </p>
  *
  * @author Hochan Son
  * @version 1.0

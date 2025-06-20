@@ -11,16 +11,19 @@
 package com.sample.wallet.client;
 
 import com.sample.wallet.dto.WalletDto;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.UUID;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA.
  * create by IntelliJ IDEA.
  *
- * <p> Feign 관련 interface. </p>
+ * <p>Feign 관련 interface. </p>
  *
  * @author Hochan Son
  * @version 1.0

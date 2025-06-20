@@ -22,7 +22,7 @@ import reactor.core.publisher.Mono;
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> Wallet 기반 Service. </p>
+ * <p>Wallet 기반 Service. </p>
  *
  * @author Hochan Son
  * @version 1.0

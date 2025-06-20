@@ -16,8 +16,7 @@ import lombok.Getter;
  * create on 2025. 6. 19. create by IntelliJ IDEA.
  * create by IntelliJ IDEA.
  *
- * <p> 시간 관련 Response. </p>
- * <p> {@link } and {@link }관련 클래스 </p>
+ * <p>시간 관련 Response. </p>
  *
  * @author Hochan Son
  * @version 1.0

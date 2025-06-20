@@ -21,7 +21,7 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> Wallet 관련 router 정보. </p>
+ * <p>Wallet 관련 router 정보. </p>
  *
  * @author Hochan Son
  * @version 1.0

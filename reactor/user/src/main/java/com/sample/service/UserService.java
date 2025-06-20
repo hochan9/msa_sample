@@ -23,7 +23,7 @@ import reactor.core.publisher.Mono;
 /**
  * create on 2025. 6. 20. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> User 관련 리액티브 Service.. </p>
+ * <p>User 관련 리액티브 Service.. </p>
  *
  * @author Hochan Son
  * @version 1.0
@@ -59,9 +59,9 @@ public class UserService {
   public Mono<UserDto.Response> transactionTest(String name) {
     Mono<User> user = userRepository.findByName(name);
     return user.flatMap(u -> {
-          u.update(name + " 1");
-          return userRepository.update(u);
-        })
+      u.update(name + " 1");
+      return userRepository.update(u);
+    })
         .flatMap(u -> createWallet(u));
   }
 

@@ -18,7 +18,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
  * create on 2025. 6. 19. create by IntelliJ IDEA.
  * create by IntelliJ IDEA.
  *
- * <p> Application. </p>
+ * <p>Application. </p>
  *
  * @author Hochan Son
  * @version 1.0

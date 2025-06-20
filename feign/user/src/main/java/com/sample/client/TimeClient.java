@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> 시간 조회 FeignClient. </p>
+ * <p>시간 조회 FeignClient. </p>
  *
  * @author Hochan Son
  * @version 1.0

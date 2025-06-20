@@ -18,7 +18,7 @@ import lombok.Getter;
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> 지갑 dto. </p>
+ * <p>지갑 dto. </p>
  *
  * @author Hochan Son
  * @version 1.0

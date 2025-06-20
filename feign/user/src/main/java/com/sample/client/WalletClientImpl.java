@@ -19,7 +19,7 @@ import org.springframework.cloud.openfeign.FeignClient;
  * create on 2025. 6. 19. create by IntelliJ IDEA.
  * create by IntelliJ IDEA.
  *
- * <p> wallet 기반 Feign Client. </p>
+ * <p>wallet 기반 Feign Client. </p>
  *
  * @author Hochan Son
  * @version 1.0

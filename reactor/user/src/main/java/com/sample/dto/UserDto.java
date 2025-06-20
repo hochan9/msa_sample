@@ -17,7 +17,7 @@ import lombok.Getter;
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> User 관련 dto. </p>
+ * <p>User 관련 dto. </p>
  *
  * @author Hochan Son
  * @version 1.0

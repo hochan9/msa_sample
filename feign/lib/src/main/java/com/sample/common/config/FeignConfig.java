@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
  * create on 2025. 6. 19. create by IntelliJ IDEA.
  * create by IntelliJ IDEA.
  *
- * <p> Feign 관련 공통. </p>
+ * <p>Feign 관련 공통. </p>
  *
  * @author Hochan Son
  * @version 1.0

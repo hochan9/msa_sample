@@ -10,9 +10,10 @@
 
 package com.sample.controller;
 
+import com.sample.service.WalletService;
 import com.sample.wallet.client.WalletClient;
 import com.sample.wallet.dto.WalletDto;
-import com.sample.service.WalletService;
+import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,13 +21,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.UUID;
-
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA.
  * create by IntelliJ IDEA.
  *
- * <p> 지감 Controller.. </p>
+ * <p>지감 Controller.. </p>
  *
  * @author Hochan Son
  * @version 1.0
@@ -38,11 +37,6 @@ import java.util.UUID;
 public class WalletController implements WalletClient {
   private final WalletService walletService;
 
-  /**
-   *
-   * @param id
-   * @return
-   */
   @Override
   public ResponseEntity<WalletDto.Response> findById(@PathVariable Long id) {
     WalletDto.Response dto = walletService.findById(id);

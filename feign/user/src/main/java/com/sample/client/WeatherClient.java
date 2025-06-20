@@ -12,17 +12,16 @@ package com.sample.client;
 
 import com.sample.common.config.FeignConfig;
 import com.sample.dto.WeatherDto;
+import java.util.List;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.List;
 
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA.
  * create by IntelliJ IDEA.
  *
- * <p> 날씨 기반 FeignClient. </p>
+ * <p>날씨 기반 FeignClient. </p>
  *
  * @author Hochan Son
  * @version 1.0

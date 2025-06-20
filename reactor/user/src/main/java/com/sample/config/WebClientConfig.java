@@ -18,7 +18,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 /**
  * create on 2025. 6. 20. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> Webclient 관련 Config. </p>
+ * <p>Webclient 관련 Config. </p>
  *
  * @author Hochan Son
  * @version 1.0
