@@ -10,58 +10,68 @@
 
 package com.sample.service;
 
-import com.sample.wallet.client.WalletClient;
 import com.sample.dto.UserDto;
-import com.sample.wallet.dto.WalletDto;
 import com.sample.entity.User;
 import com.sample.repository.UserRepository;
+import com.sample.wallet.client.WalletClient;
+import com.sample.wallet.dto.WalletDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * create on 2025. 6. 19. create by IntelliJ IDEA.
- * create by IntelliJ IDEA.
+ * create on 2025. 6. 19. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> 클래스 설명. </p>
- * <p> {@link } and {@link }관련 클래스 </p>
+ * <p> 유저 Service. </p>
  *
  * @author Hochan Son
  * @version 1.0
- * @see
- * @since 지원하는 자바버전 (ex : 5+ 5이상)
+ * @since 1.0
  */
 @RequiredArgsConstructor
 @Service
 @Transactional(readOnly = true)
 public class UserService {
+
   private final UserRepository userRepository;
 
   private final WalletClient walletClient;
 
 
+  /**
+   * 생성.
+   *
+   * @param name 이름
+   * @return 응답
+   */
   @Transactional
   public UserDto.Response create(String name) {
     User user = new User(name);
 
     user = userRepository.save(user);
     WalletDto.Response walletDto = walletClient.create(new WalletDto.Create(user.getId()))
-            .getBody();
+        .getBody();
     return new UserDto.Response(user.getId(),
-            user.getName(),
-            walletDto.getId());
+        user.getName(),
+        walletDto.getId());
   }
 
+  /**
+   * 트랜잭션 테스트.
+   *
+   * @param name 이름
+   * @return 응답
+   */
   @Transactional
   public UserDto.Response transactionTest(String name) {
     User user = userRepository.findByName(name)
-            .orElseThrow(() -> new RuntimeException("NOT FOUND"));
+        .orElseThrow(() -> new RuntimeException("NOT FOUND"));
 
     user.update(name + "1");
     WalletDto.Response walletDto = walletClient.create(new WalletDto.Create(user.getId()))
-            .getBody();
+        .getBody();
     return new UserDto.Response(user.getId(),
-            user.getName(),
-            walletDto.getId());
+        user.getName(),
+        walletDto.getId());
   }
 }

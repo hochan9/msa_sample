@@ -10,38 +10,69 @@
 
 package com.sample.dto;
 
+import java.util.UUID;
 import lombok.Getter;
 
-import java.util.UUID;
-
 /**
- * create on 2025. 6. 19. create by IntelliJ IDEA.
- * create by IntelliJ IDEA.
+ * create on 2025. 6. 19. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> 클래스 설명. </p>
- * <p> {@link } and {@link }관련 클래스 </p>
+ * <p> 유저 응답.. </p>
  *
  * @author Hochan Son
  * @version 1.0
- * @see
- * @since 지원하는 자바버전 (ex : 5+ 5이상)
+ * @since 1.0
  */
 public class UserDto {
 
+  /**
+   * 생성 요청.
+   */
   @Getter
   public static class Create {
+
+    /**
+     * 이름.
+     */
     private String name;
+
+    /**
+     * 생성자.
+     *
+     * @param name 이름
+     */
     public Create(String name) {
       this.name = name;
     }
   }
 
+  /**
+   * 응답.
+   */
   @Getter
   public static class Response {
+
+    /**
+     * userId.
+     */
     private UUID id;
+
+    /**
+     * 이름.
+     */
     private String name;
+
+    /**
+     * 지갑 id.
+     */
     private Long walletId;
 
+    /**
+     * 생성자.
+     *
+     * @param id       id
+     * @param name     이름
+     * @param walletId 지갑id
+     */
     public Response(UUID id, String name, Long walletId) {
       this.id = id;
       this.name = name;

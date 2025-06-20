@@ -26,13 +26,11 @@ import java.util.UUID;
  * create on 2025. 6. 19. create by IntelliJ IDEA.
  * create by IntelliJ IDEA.
  *
- * <p> 클래스 설명. </p>
- * <p> {@link } and {@link }관련 클래스 </p>
+ * <p> 지감 Controller.. </p>
  *
  * @author Hochan Son
  * @version 1.0
- * @see
- * @since 지원하는 자바버전 (ex : 5+ 5이상)
+ * @since 1.0
  */
 @RestController
 @RequestMapping("/wallets")
@@ -40,6 +38,11 @@ import java.util.UUID;
 public class WalletController implements WalletClient {
   private final WalletService walletService;
 
+  /**
+   *
+   * @param id
+   * @return
+   */
   @Override
   public ResponseEntity<WalletDto.Response> findById(@PathVariable Long id) {
     WalletDto.Response dto = walletService.findById(id);

@@ -11,24 +11,26 @@
 package com.sample.repository;
 
 import com.sample.entity.User;
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.Optional;
 import java.util.UUID;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * create on 2025. 6. 19. create by IntelliJ IDEA.
- * create by IntelliJ IDEA.
+ * create on 2025. 6. 19. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> 클래스 설명. </p>
- * <p> {@link } and {@link }관련 클래스 </p>
+ * <p> User Repository.. </p>
  *
  * @author Hochan Son
  * @version 1.0
- * @see
- * @since 지원하는 자바버전 (ex : 5+ 5이상)
+ * @since 1.0
  */
 public interface UserRepository extends JpaRepository<User, UUID> {
 
+  /**
+   * 이름으로 User 검색.
+   *
+   * @param name 이름
+   * @return User
+   */
   Optional<User> findByName(String name);
 }
