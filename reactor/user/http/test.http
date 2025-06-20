@@ -1,0 +1,21 @@
+POST localhost:8082/users
+Content-Type: application/json
+
+{
+  "name": "안녕"
+}
+
+### 트랜잭션 테스트 -> 수정 날짜 체크
+PUT localhost:8082/users
+Content-Type: application/json
+
+{
+"name": "안녕 1"
+}
+
+### time
+GET localhost:8082/test/time
+
+
+### weather
+GET localhost:8082/test/weather

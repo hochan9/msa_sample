@@ -12,6 +12,8 @@ package com.sample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.r2dbc.config.EnableR2dbcAuditing;
+import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories;
 
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA.
@@ -26,6 +28,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 지원하는 자바버전 (ex : 5+ 5이상)
  */
 @SpringBootApplication
+@EnableR2dbcRepositories
+@EnableR2dbcAuditing
 public class UserReactorApplication {
   public static void main(String[] args) {
     SpringApplication.run(UserReactorApplication.class, args);

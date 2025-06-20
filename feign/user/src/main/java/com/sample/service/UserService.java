@@ -57,6 +57,7 @@ public class UserService {
     User user = userRepository.findByName(name)
             .orElseThrow(() -> new RuntimeException("NOT FOUND"));
 
+    user.update(name + "1");
     WalletDto.Response walletDto = walletClient.create(new WalletDto.Create(user.getId()))
             .getBody();
     return new UserDto.Response(user.getId(),

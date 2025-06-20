@@ -10,13 +10,13 @@
 
 package com.sample.entity;
 
-import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -33,17 +33,13 @@ import java.util.UUID;
  * @see
  * @since 지원하는 자바버전 (ex : 5+ 5이상)
  */
-@Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "`user`")
-@EntityListeners(AuditingEntityListener.class)
 public class User {
   @Id
-  @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
 
-  @Column
   private String name;
 
   @CreatedDate
@@ -52,7 +48,8 @@ public class User {
   @LastModifiedDate
   private LocalDateTime modifiedAt;
 
-  public User(String name) {
+  public User(UUID id, String name) {
+    this.id = id;
     this.name = name;
   }
 
