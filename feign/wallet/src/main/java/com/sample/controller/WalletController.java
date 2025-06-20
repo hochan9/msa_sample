@@ -55,6 +55,4 @@ public class WalletController implements WalletClient {
     return ResponseEntity.status(HttpStatus.CREATED)
             .body(walletDto);
   }
-
-
 }

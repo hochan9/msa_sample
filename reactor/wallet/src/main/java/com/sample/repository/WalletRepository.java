@@ -18,7 +18,7 @@ import reactor.core.publisher.Mono;
 /**
  * create on 2025. 6. 19. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p>R2dbcRepository 이용한 wallet Repository.. </p>
+ * <p>R2dbcRepository 이용한 wallet Repository. </p>
  *
  * @author Hochan Son
  * @version 1.0

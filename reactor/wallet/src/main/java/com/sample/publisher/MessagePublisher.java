@@ -27,7 +27,7 @@ import org.springframework.web.client.RestTemplate;
  *
  * @author Hochan Son
  * @version 1.0
- * @since 지원하는 자바버전 (ex : 5+ 5이상)
+ * @since1.0
  */
 @Service
 @RequiredArgsConstructor

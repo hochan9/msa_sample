@@ -22,6 +22,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
     runtimeOnly 'org.mariadb:r2dbc-mariadb'
     testRuntimeOnly 'io.r2dbc:r2dbc-h2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     // 맥 관련 옵션
     if (isAppleSilicon()) {

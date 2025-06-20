@@ -27,7 +27,7 @@ import org.springframework.cloud.openfeign.FeignClient;
  */
 @FeignClient(name = "wallet",
         url = "${api.url.wallet}",
-        path = "/wallet",
+        path = "/wallets",
         configuration = FeignConfig.class)
 @Headers({"Content-type", "application/json"})
 public interface WalletClientImpl extends WalletClient {
