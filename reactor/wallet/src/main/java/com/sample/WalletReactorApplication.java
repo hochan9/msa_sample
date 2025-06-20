@@ -26,8 +26,6 @@ import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories;
  * @since 1.0
  */
 @SpringBootApplication
-@EnableR2dbcAuditing
-@EnableR2dbcRepositories
 public class WalletReactorApplication {
 
   /**

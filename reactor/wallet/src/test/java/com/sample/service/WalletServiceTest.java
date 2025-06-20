@@ -80,9 +80,10 @@ class WalletServiceTest {
     Wallet wallet = Mockito.mock(Wallet.class);
     given(wallet.getId()).willReturn(1L);
 
-
+    // when
     when(walletRepository.findByUserId(any())).thenReturn(Mono.just(wallet));
 
+    // then
     StepVerifier.create(walletService.findByUserId(UUID.randomUUID()))
         .expectNextMatches(response ->
             response.getId().equals(wallet.getId())
@@ -92,13 +93,16 @@ class WalletServiceTest {
 
   @Test
   void save() {
+    // given
     Wallet wallet = Mockito.mock(Wallet.class);
     WalletDto.Create create = new Create(UUID.randomUUID());
     given(wallet.getId()).willReturn(1L);
     given(wallet.getUserId()).willReturn(create.getUserId());
 
+    // when
     when(walletRepository.save(any())).thenReturn(Mono.just(wallet));
 
+    // then
     StepVerifier.create(walletService.save(create))
         .expectNextMatches(response ->
             response.getId().equals(wallet.getId())

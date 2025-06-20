@@ -12,9 +12,11 @@ package com.sample.handler;
 
 import com.sample.service.WalletService;
 import com.sample.wallet.dto.WalletDto;
+import com.sample.wallet.dto.WalletDto.Create;
 import java.net.URI;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
@@ -30,6 +32,7 @@ import reactor.core.publisher.Mono;
  * @version 1.0
  * @since 1.0
  */
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class WalletHandler {
@@ -49,7 +52,7 @@ public class WalletHandler {
             .contentType(MediaType.APPLICATION_JSON)
             .bodyValue(wallet))
         .onErrorResume(error -> ServerResponse.badRequest()
-            .build());
+            .bodyValue(error.getMessage()));
   }
 
   /**
@@ -76,11 +79,12 @@ public class WalletHandler {
    * @return 응답
    */
   public Mono<ServerResponse> create(ServerRequest request) {
-    return request.bodyToMono(WalletDto.Create.class)
+    return request.bodyToMono(Create.class)
         .flatMap(dto -> walletService.save(dto))
         .flatMap(wallet ->
             ServerResponse.created(URI.create("/wallets/" + wallet.getId())).bodyValue(wallet))
 //            ServerResponse.status(201).bodyValue(walletService.save(dto)))
-        .onErrorResume(error -> ServerResponse.badRequest().build());
+        .onErrorResume(error -> ServerResponse.badRequest()
+            .bodyValue(error.getMessage()));
   }
 }
