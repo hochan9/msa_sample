@@ -11,22 +11,18 @@
 package com.sample.repository;
 
 import com.sample.entity.Wallet;
+import java.util.UUID;
 import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import reactor.core.publisher.Mono;
 
-import java.util.UUID;
-
 /**
- * create on 2025. 6. 19. create by IntelliJ IDEA.
- * create by IntelliJ IDEA.
+ * create on 2025. 6. 19. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> 클래스 설명. </p>
- * <p> {@link } and {@link }관련 클래스 </p>
+ * <p> R2dbcRepository 이용한 wallet Repository.. </p>
  *
  * @author Hochan Son
  * @version 1.0
- * @see
- * @since 지원하는 자바버전 (ex : 5+ 5이상)
+ * @since 1.0
  */
 public interface WalletRepository extends R2dbcRepository<Wallet, Long> {
 

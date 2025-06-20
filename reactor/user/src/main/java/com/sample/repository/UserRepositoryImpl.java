@@ -10,6 +10,8 @@
 
 package com.sample.repository;
 
+import static org.springframework.data.relational.core.query.Criteria.where;
+
 import com.sample.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;
@@ -17,25 +19,19 @@ import org.springframework.data.relational.core.query.Query;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;
 
-import java.util.Optional;
-
-import static org.springframework.data.relational.core.query.Criteria.where;
-
 /**
- * create on 2025. 6. 20. create by IntelliJ IDEA.
- * create by IntelliJ IDEA.
+ * create on 2025. 6. 20. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> 클래스 설명. </p>
- * <p> {@link } and {@link }관련 클래스 </p>
+ * <p> R2dbcEntityTemplate 를 이용한 Repository. </p>
  *
  * @author Hochan Son
  * @version 1.0
- * @see
- * @since 지원하는 자바버전 (ex : 5+ 5이상)
+ * @since 1.0
  */
 @Repository
 @RequiredArgsConstructor
 public class UserRepositoryImpl implements UserRepository {
+
   private final R2dbcEntityTemplate template;
 
   @Override
@@ -51,6 +47,6 @@ public class UserRepositoryImpl implements UserRepository {
   @Override
   public Mono<User> findByName(String name) {
     return template.selectOne(Query.query(where("name").is(name)), User.class)
-            .switchIfEmpty(Mono.error(new RuntimeException("User not found")));
+        .switchIfEmpty(Mono.error(new RuntimeException("User not found")));
   }
 }

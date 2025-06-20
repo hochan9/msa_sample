@@ -10,48 +10,62 @@
 
 package com.sample.entity;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.UUID;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.relational.core.mapping.Column;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.UUID;
 
 /**
- * create on 2025. 6. 19. create by IntelliJ IDEA.
- * create by IntelliJ IDEA.
+ * create on 2025. 6. 19. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> 클래스 설명. </p>
- * <p> {@link } and {@link }관련 클래스 </p>
+ * <p> 지갑 entity. </p>
  *
  * @author Hochan Son
  * @version 1.0
- * @see
- * @since 지원하는 자바버전 (ex : 5+ 5이상)
+ * @since 1.0
  */
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Wallet {
 
+  /**
+   * id.
+   */
   @Id
   private Long id;
 
+  /**
+   * UserId.
+   */
   private UUID userId;
 
+  /**
+   * 잔액.
+   */
   private BigDecimal point;
 
+  /**
+   * 생성시간.
+   */
   @CreatedDate
   private LocalDateTime createdAt;
 
+  /**
+   * 수정시간.
+   */
   @LastModifiedDate
   private LocalDateTime modifiedAt;
 
-
+  /**
+   * 생성자.
+   *
+   * @param userId 유저 id.
+   */
   public Wallet(UUID userId) {
     this.userId = userId;
     this.point = BigDecimal.ZERO;

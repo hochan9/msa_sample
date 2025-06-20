@@ -16,27 +16,30 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
 
 /**
- * create on 2025. 6. 20. create by IntelliJ IDEA.
- * create by IntelliJ IDEA.
+ * create on 2025. 6. 20. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> 클래스 설명. </p>
- * <p> {@link } and {@link }관련 클래스 </p>
+ * <p> Webclient 관련 Config. </p>
  *
  * @author Hochan Son
  * @version 1.0
- * @see
- * @since 지원하는 자바버전 (ex : 5+ 5이상)
+ * @since 1.0
  */
 @Configuration
 public class WebClientConfig {
+
   @Value("${api.url.wallet}")
   private String walletUrl;
 
+  /**
+   * 지갑 주소 Api webclient.
+   *
+   * @return Webcliet.
+   */
   @Bean
   public WebClient walletWebClient() {
     return WebClient.builder()
-            .baseUrl(walletUrl)
-            .build();
+        .baseUrl(walletUrl)
+        .build();
 
   }
 }

@@ -13,24 +13,38 @@ package com.sample.repository;
 import com.sample.entity.User;
 import reactor.core.publisher.Mono;
 
-import java.util.Optional;
-
 /**
- * create on 2025. 6. 20. create by IntelliJ IDEA.
- * create by IntelliJ IDEA.
+ * create on 2025. 6. 20. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p> 클래스 설명. </p>
- * <p> {@link } and {@link }관련 클래스 </p>
+ * <p> 사용자 Repository. </p>
  *
  * @author Hochan Son
  * @version 1.0
- * @see
- * @since 지원하는 자바버전 (ex : 5+ 5이상)
+ * @since 1.0
  */
 public interface UserRepository {
+
+  /**
+   * 저장.
+   *
+   * @param user 저장할 user
+   * @return {@code Mono<User>}
+   */
   Mono<User> save(User user);
 
+  /**
+   * 수정.
+   *
+   * @param user 수정할 user
+   * @return {@code Mono<User>}
+   */
   Mono<User> update(User user);
 
+  /**
+   * 이름으로 조회.
+   *
+   * @param name 이름
+   * @return {@code Mono<User>}
+   */
   Mono<User> findByName(String name);
 }
