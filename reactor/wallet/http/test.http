@@ -7,3 +7,11 @@ Content-Type: application/json
 
 ###
 GET localhost:8083/wallets?userId=ed96f741-53ae-4f87-8f63-64b8182e629e
+
+###
+POST localhost:8083/messages
+Content-Type: application/json
+
+{
+  "message": "test"
+}
