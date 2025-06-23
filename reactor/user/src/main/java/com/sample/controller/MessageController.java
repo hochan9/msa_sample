@@ -11,10 +11,9 @@
 package com.sample.controller;
 
 import com.sample.message.dto.MessageDto;
-import com.sample.message.publisher.MessagePublisher;
-import com.sample.publisher.RedisMessagePublisher;
-import com.sample.service.EmitterService;
+import com.sample.service.MessageService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,12 +22,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 /**
  * create on 2025. 6. 23. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p>메시지 관련 Test. </p>
+ * <p>Message 관련 Controller. </p>
  *
  * @author Hochan Son
  * @version 1.0
@@ -37,29 +37,29 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 @RestController
 @RequiredArgsConstructor
 public class MessageController {
-  private final EmitterService service;
-  private final MessagePublisher publisher;
+
+  private final MessageService messageService;
 
   /**
-   * SSe Message 구독.
+   * SSE 연결.
    *
-   * @param userId 구독할 id
-   * @return 응답
+   * @param userId userId
+   * @return Message 정보
    */
   @GetMapping(value = "/streaming-messages/{userId}", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-  public SseEmitter streamingMessages(@PathVariable String userId) {
-    return service.subscribe(userId);
+  public Flux<MessageDto> streamingMessages(@PathVariable String userId) {
+    return messageService.subscribe(userId);
   }
 
   /**
    * 메시지 발행.
    *
-   * @param dto 발행할 Dto
-   * @return 으답
+   * @param messageDto 메시지 정보
+   * @return 응답
    */
   @PostMapping("/messages")
-  public ResponseEntity<Void> publishMessage(@RequestBody MessageDto dto) {
-    publisher.publish(dto);
-    return ResponseEntity.ok().build();
+  public Mono<ResponseEntity<Void>> publish(@RequestBody MessageDto messageDto) {
+    messageService.publish(messageDto);
+    return Mono.just(ResponseEntity.ok().build());
   }
 }

@@ -16,6 +16,9 @@ dependencies {
     implementation 'io.projectreactor:reactor-core'
     testImplementation 'io.projectreactor:reactor-test'
 
+    // Redis Pub/Sub
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
     implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
     runtimeOnly 'org.mariadb:r2dbc-mariadb'
     testRuntimeOnly 'io.r2dbc:r2dbc-h2'

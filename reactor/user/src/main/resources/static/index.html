@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SSE 메시지 스트리밍 테스트</title>
+</head>
+<body>
+<h1>Redis Pub/Sub SSE 테스트</h1>
+<div id="messages"></div>
+
+<script>
+  const eventSource = new EventSource('/streaming-messages/test');
+
+  eventSource.onmessage = function(event) {
+    const messagesDiv = document.getElementById('messages');
+    messagesDiv.innerHTML += `<p>${event.data}</p>`;
+  };
+
+  eventSource.onerror = function(err) {
+    console.error('EventSource failed:', err);
+    eventSource.close();
+  };
+</script>
+</body>
+</html>
