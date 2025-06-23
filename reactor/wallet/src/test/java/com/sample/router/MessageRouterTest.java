@@ -8,6 +8,7 @@ package com.sample.router;/*
  * Written by Backend Team <hc.son9@google.com>, 2025. 6. 20.
  */
 
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.argThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -62,17 +63,16 @@ class MessageRouterTest {
   @Test
   void GET_streaming_messages_성공() {
     // given
-    MessageDto message1 = new MessageDto("hello");
-    MessageDto message2 = new MessageDto("world");
+    MessageDto message1 = new MessageDto("id", "hello");
+    MessageDto message2 = new MessageDto("id", "world");
 
-    // when
-    when(subscriber.getSink()).thenReturn(Sinks.many().replay().all());
-    subscriber.getSink().tryEmitNext(message1);
-    subscriber.getSink().tryEmitNext(message2);
+    // 하나의 Sink를 사용하여 동일한 데이터 흐름을 확인
+    Sinks.Many<MessageDto> sink = Sinks.many().replay().all();
+    when(subscriber.getSink(anyString())).thenReturn(sink);
 
     // then
     webTestClient.get()
-        .uri("/streaming-messages")
+        .uri("/streaming-messages/{userId}", message1.getId())
         .accept(MediaType.TEXT_EVENT_STREAM)
         .exchange()
         .expectStatus().isOk()
@@ -89,7 +89,7 @@ class MessageRouterTest {
 
   @Test
   void POST_message_성공() {
-    MessageDto request = new MessageDto("hello");
+    MessageDto request = new MessageDto("id", "hello");
 
     webTestClient.post()
         .uri("/messages")

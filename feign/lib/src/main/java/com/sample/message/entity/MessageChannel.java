@@ -8,41 +8,25 @@
  * Written by Backend Team <hc.son9@google.com>, 2025. 6. 20.
  */
 
-package com.sample.message.dto;
+package com.sample.message.entity;
 
-import java.util.UUID;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * create on 2025. 6. 20. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p>메시지 발행 관련. </p>
+ * <p>메시지 channel. </p>
  *
  * @author Hochan Son
  * @version 1.0
  * @since 1.0
  */
+@RequiredArgsConstructor
 @Getter
-public class MessageDto {
+public enum MessageChannel {
+  DEFAULT("default"),;
 
-  /**
-   * id.
-   */
-  private String id;
+  private final String name;
 
-  /**
-   * message.
-   */
-  private String message;
-
-  /**
-   * 생성자.
-   *
-   * @param id id
-   * @param message 메시지
-   */
-  public MessageDto(String id, String message) {
-    this.id = id;
-    this.message = message;
-  }
 }

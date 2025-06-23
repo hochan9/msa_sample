@@ -13,5 +13,6 @@ POST localhost:8083/messages
 Content-Type: application/json
 
 {
+  "id": "test",
   "message": "test"
 }

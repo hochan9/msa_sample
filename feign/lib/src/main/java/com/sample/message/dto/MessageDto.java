@@ -10,7 +10,6 @@
 
 package com.sample.message.dto;
 
-import java.util.UUID;
 import lombok.Getter;
 
 /**
@@ -38,7 +37,7 @@ public class MessageDto {
   /**
    * 생성자.
    *
-   * @param id id
+   * @param id      userId
    * @param message 메시지
    */
   public MessageDto(String id, String message) {

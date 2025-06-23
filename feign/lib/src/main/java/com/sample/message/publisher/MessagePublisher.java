@@ -8,41 +8,24 @@
  * Written by Backend Team <hc.son9@google.com>, 2025. 6. 20.
  */
 
-package com.sample.message.dto;
+package com.sample.message.publisher;
 
-import java.util.UUID;
-import lombok.Getter;
+import com.sample.message.dto.MessageDto;
 
 /**
  * create on 2025. 6. 20. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p>메시지 발행 관련. </p>
+ * <p>메시지 발행관련 인터페이스. </p>
  *
  * @author Hochan Son
- * @version 1.0
  * @since 1.0
  */
-@Getter
-public class MessageDto {
+public interface MessagePublisher {
 
   /**
-   * id.
-   */
-  private String id;
-
-  /**
-   * message.
-   */
-  private String message;
-
-  /**
-   * 생성자.
+   * 메시지 발행.
    *
-   * @param id id
-   * @param message 메시지
+   * @param message 발행할 dto
    */
-  public MessageDto(String id, String message) {
-    this.id = id;
-    this.message = message;
-  }
+  void publish(MessageDto message);
 }

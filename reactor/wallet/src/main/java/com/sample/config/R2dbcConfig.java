@@ -17,13 +17,11 @@ import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories;
 /**
  * create on 2025. 6. 20. create by IntelliJ IDEA. create by IntelliJ IDEA.
  *
- * <p>클래스 설명. </p>
- * <p> {@link } and {@link }관련 클래스 </p>
+ * <p>R2dbc Config. </p>
  *
  * @author Hochan Son
  * @version 1.0
- * @see
- * @since 지원하는 자바버전 (ex : 5+ 5이상)
+ * @since 1.0
  */
 @Configuration
 @EnableR2dbcAuditing

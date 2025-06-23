@@ -14,11 +14,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sample.message.dto.MessageDto;
 import com.sample.message.entity.MessageChannel;
+import com.sample.message.publisher.MessagePublisher;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * create on 2025. 6. 20. create by IntelliJ IDEA. create by IntelliJ IDEA.
@@ -32,7 +32,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class MessagePublisher implements com.sample.message.publisher.MessagePublisher {
+public class RedisMessagePublisher implements MessagePublisher {
 
   private final RedisTemplate redisTemplate;
   private final ObjectMapper objectMapper;

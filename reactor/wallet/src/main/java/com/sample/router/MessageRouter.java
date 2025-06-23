@@ -23,6 +23,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.RequestPredicates;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
+import reactor.core.publisher.Sinks;
 
 /**
  * create on 2025. 6. 20. create by IntelliJ IDEA. create by IntelliJ IDEA.
@@ -47,10 +48,14 @@ public class MessageRouter {
   public RouterFunction<ServerResponse> routeMessage(MessageSubscriber subscriber,
       MessageHandler handler) {
     return route(
-        GET("/streaming-messages"),
-        request -> ServerResponse.ok()
-            .contentType(MediaType.TEXT_EVENT_STREAM)
-            .body(subscriber.getSink().asFlux(), MessageDto.class)  // 이렇게 변경
+        GET("/streaming-messages/{userId}"),
+        request -> {
+          String userId = request.pathVariable("userId");
+          Sinks.Many<MessageDto> sink = subscriber.getSink(userId);
+          return ServerResponse.ok()
+              .contentType(MediaType.TEXT_EVENT_STREAM)
+              .body(sink.asFlux(), MessageDto.class);  // 이렇게 변경
+        }
     )
         .andRoute(POST("/messages"), handler::createMessage);
   }
