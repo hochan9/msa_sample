@@ -59,7 +59,8 @@ public class MessageController {
    */
   @PostMapping("/messages")
   public Mono<ResponseEntity<Void>> publish(@RequestBody MessageDto messageDto) {
-    messageService.publish(messageDto);
-    return Mono.just(ResponseEntity.ok().build());
+
+    return messageService.publish(messageDto)
+        .then(Mono.just(ResponseEntity.ok().build()));
   }
 }

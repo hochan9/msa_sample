@@ -15,11 +15,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sample.message.dto.MessageDto;
 import com.sample.repository.SinkRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.Message;
 import org.springframework.data.redis.connection.MessageListener;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Sinks;
 
 /**
  * create on 2025. 6. 23. create by IntelliJ IDEA. create by IntelliJ IDEA.
@@ -32,6 +34,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class MessageSubscriber implements MessageListener {
   private final ObjectMapper objectMapper;
   private final SinkRepository sinkRepository;
@@ -41,7 +44,10 @@ public class MessageSubscriber implements MessageListener {
     try {
       String json = new String(message.getBody());
       MessageDto dto = objectMapper.readValue(json, MessageDto.class);
-      sinkRepository.get(dto.getId()).tryEmitNext(dto);
+      Sinks.EmitResult result = sinkRepository.get(dto.getId()).tryEmitNext(dto);
+      if (result.isFailure()) {
+        log.warn("failed to send message: {}", dto);
+      }
     } catch (JsonProcessingException e) {
       throw new RuntimeException(e);
     }

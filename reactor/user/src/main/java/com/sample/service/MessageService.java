@@ -20,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 /**
  * create on 2025. 6. 23. create by IntelliJ IDEA. create by IntelliJ IDEA.
@@ -54,8 +55,8 @@ public class MessageService {
    *
    * @param dto 발행 메시지.
    */
-  public void publish(MessageDto dto) {
-    redisMessagePublisher.publish(dto);
+  public Mono<Void> publish(MessageDto dto) {
+    return Mono.fromRunnable(() -> redisMessagePublisher.publish(dto));
   }
 
 }
