@@ -16,6 +16,7 @@ import com.sample.message.dto.MessageDto;
 import com.sample.message.entity.MessageChannel;
 import com.sample.message.publisher.MessagePublisher;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
@@ -30,6 +31,7 @@ import org.springframework.stereotype.Component;
  */
 @RequiredArgsConstructor
 @Component
+@Slf4j
 public class RedisMessagePublisher implements MessagePublisher {
 
   private final RedisTemplate<String, String> redisTemplate;

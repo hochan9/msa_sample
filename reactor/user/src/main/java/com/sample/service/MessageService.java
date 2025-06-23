@@ -58,5 +58,4 @@ public class MessageService {
   public Mono<Void> publish(MessageDto dto) {
     return Mono.fromRunnable(() -> redisMessagePublisher.publish(dto));
   }
-
 }
