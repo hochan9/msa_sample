@@ -19,3 +19,12 @@ GET localhost:8082/test/time
 
 ### weather
 GET localhost:8082/test/weather
+
+###
+POST localhost:8082/messages
+Content-Type: application/json
+
+{
+  "id": "test",
+  "message": "test"
+}

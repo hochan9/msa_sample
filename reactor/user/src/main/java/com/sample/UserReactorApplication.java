@@ -25,8 +25,6 @@ import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories;
  * @since 1.0
  */
 @SpringBootApplication
-@EnableR2dbcRepositories
-@EnableR2dbcAuditing
 public class UserReactorApplication {
 
   /**

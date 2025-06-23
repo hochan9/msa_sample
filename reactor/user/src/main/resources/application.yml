@@ -13,6 +13,10 @@ spring:
     init:
       schema-locations: classpath:db/mysql/schema.sql
       mode: always
+  data:
+    redis:
+      host: localhost
+      port: 6379
 server:
   port: 8082
 

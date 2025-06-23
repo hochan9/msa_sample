@@ -12,6 +12,7 @@ package com.sample.controller;
 
 import com.sample.dto.UserDto;
 import com.sample.service.UserService;
+import java.net.URI;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,7 +47,7 @@ public class UserController {
   @PostMapping
   public Mono<ResponseEntity<UserDto.Response>> createUser(@RequestBody UserDto.Create dto) {
     Mono<UserDto.Response> user = userService.create(dto.getName());
-    return user.map(u -> ResponseEntity.ok().body(u));
+    return user.map(u -> ResponseEntity.created(URI.create("/users/" + u.getId())).body(u));
   }
 
   /**
